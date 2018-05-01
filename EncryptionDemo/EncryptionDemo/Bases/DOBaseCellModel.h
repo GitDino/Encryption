@@ -14,6 +14,11 @@ typedef NS_ENUM(NSUInteger, MD5Type) {
     MD5TypeHMAC
 };
 
+typedef NS_ENUM(NSUInteger, ModelType) {
+    ModelTypeECB = 0,
+    ModelTypeCBC
+};
+
 @interface DOBaseCellModel : NSObject
 
 @property (nonatomic, copy) NSString *cell_title;
@@ -21,6 +26,8 @@ typedef NS_ENUM(NSUInteger, MD5Type) {
 @property (nonatomic, assign) Class push_class;
 
 @property (nonatomic, assign) MD5Type md5_type;
+
+@property (nonatomic, assign) ModelType model_type;
 
 + (instancetype)baseCellModelWithTitle:(NSString *) cell_title pushClass:(Class) push_class;
 

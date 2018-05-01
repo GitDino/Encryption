@@ -58,6 +58,18 @@
             self.decode_btn.hidden = YES;
             self.decodeResult_textView.hidden = YES;
             break;
+        case EncryptionTypeAESAndECB:
+            self.title = @"AES + ECB";
+            break;
+        case EncryptionTypeAESAndCBC:
+            self.title = @"AES + CBC";
+            break;
+        case EncryptionTypeDESAndECB:
+            self.title = @"DES + ECB";
+            break;
+        case EncryptionTypeDESAndCBC:
+            self.title = @"DES + CBC";
+            break;
             
         default:
             break;
