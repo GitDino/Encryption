@@ -46,6 +46,7 @@
     self.list_tableView.clickIndexCellBlock = ^(NSIndexPath *indexPath, NSMutableArray *data_array) {
         DOEncryptionListCellModel *cell_model = data_array[indexPath.row];
         UIViewController *push_vc = [[[cell_model push_class] alloc] init];
+        push_vc.title = cell_model.cell_title;
         [weakSelf.navigationController pushViewController:push_vc animated:YES];
     };
 }
