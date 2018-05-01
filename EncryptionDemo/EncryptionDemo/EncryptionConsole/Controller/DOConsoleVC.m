@@ -72,6 +72,9 @@
         case EncryptionTypeDESAndCBC:
             self.title = @"DES + CBC";
             break;
+        case EncryptionTypeRSA:
+            self.title = @"RSA";
+            break;
             
         default:
             break;
@@ -134,6 +137,8 @@
                 self.encode_result = [self encodeDESAndCBCWithString:self.scanf_textfield.text];
                 self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果--------\n%@", self.title, self.encode_result];
                 break;
+            case EncryptionTypeRSA:
+                break;
                 
             default:
                 break;
@@ -170,6 +175,8 @@
                 break;
             case EncryptionTypeDESAndCBC:
                 self.decodeResult_textView.text = [NSString stringWithFormat:@"-------%@解密结果-------\n%@", self.title, [self decodeDESAndCBCWithString:self.encode_result]];
+                break;
+            case EncryptionTypeRSA:
                 break;
                 
             default:

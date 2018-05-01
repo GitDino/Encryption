@@ -14,7 +14,6 @@
 #import "DOMD5VC.h"
 #import "DOAESVC.h"
 #import "DODESVC.h"
-#import "DORSAVC.h"
 
 @interface DOEncrytionListVC ()
 
@@ -49,7 +48,17 @@
     self.list_tableView.clickIndexCellBlock = ^(NSIndexPath *indexPath, NSMutableArray *data_array) {
         DOBaseCellModel *cell_model = data_array[indexPath.row];
         DOBaseVC *push_vc = [[[cell_model push_class] alloc] init];
-//        push_vc.type = EncryptionTypeBase64;
+        switch (cell_model.model_type) {
+            case ModelTypeBase64:
+                push_vc.type = EncryptionTypeBase64;
+                break;
+            case ModelTypeRSA:
+                push_vc.type = EncryptionTypeRSA;
+                break;
+                
+            default:
+                break;
+        }
         [weakSelf.navigationController pushViewController:push_vc animated:YES];
     };
 }
@@ -69,10 +78,13 @@
     if (!_data_array)
     {
         DOBaseCellModel *cell_model1 = [DOBaseCellModel baseCellModelWithTitle:@"Base64加密" pushClass:[DOConsoleVC class]];
+        cell_model1.model_type = ModelTypeBase64;
+        
         DOBaseCellModel *cell_model2 = [DOBaseCellModel baseCellModelWithTitle:@"MD5加密" pushClass:[DOMD5VC class]];
         DOBaseCellModel *cell_model3 = [DOBaseCellModel baseCellModelWithTitle:@"AES加密" pushClass:[DOAESVC class]];
         DOBaseCellModel *cell_model4 = [DOBaseCellModel baseCellModelWithTitle:@"DES加密" pushClass:[DODESVC class]];
-        DOBaseCellModel *cell_model5 = [DOBaseCellModel baseCellModelWithTitle:@"RSA加密" pushClass:[DORSAVC class]];
+        DOBaseCellModel *cell_model5 = [DOBaseCellModel baseCellModelWithTitle:@"RSA加密" pushClass:[DOConsoleVC class]];
+        cell_model5.model_type = ModelTypeRSA;
         
         NSArray *temp_array = @[cell_model1, cell_model2, cell_model3, cell_model4, cell_model5];
         

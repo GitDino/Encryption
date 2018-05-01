@@ -18,6 +18,7 @@ typedef NS_ENUM(NSUInteger, EncryptionType) {
     EncryptionTypeAESAndCBC,
     EncryptionTypeDESAndECB,
     EncryptionTypeDESAndCBC,
+    EncryptionTypeRSA
 };
 
 @interface DOBaseVC : UIViewController

@@ -16,7 +16,9 @@ typedef NS_ENUM(NSUInteger, MD5Type) {
 
 typedef NS_ENUM(NSUInteger, ModelType) {
     ModelTypeECB = 0,
-    ModelTypeCBC
+    ModelTypeCBC,
+    ModelTypeBase64,
+    ModelTypeRSA
 };
 
 @interface DOBaseCellModel : NSObject
