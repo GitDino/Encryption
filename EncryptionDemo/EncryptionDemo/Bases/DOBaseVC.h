@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DOBaseCellModel.h"
 
 typedef NS_ENUM(NSUInteger, EncryptionType) {
     EncryptionTypeBase64 = 0,
     EncryptionTypeMD5,
+    EncryptionTypeMD5AndSalt,
+    EncryptionTypeMD5AndHAC,
 };
 
 @interface DOBaseVC : UIViewController

@@ -13,6 +13,8 @@
 		01854BDE20984ABF00811A43 /* DOEncrytionListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BDD20984ABF00811A43 /* DOEncrytionListVC.m */; };
 		01854BE32098509F00811A43 /* DOMD5VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BE22098509F00811A43 /* DOMD5VC.m */; };
 		01854BE6209850D000811A43 /* DOBaseCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BE5209850D000811A43 /* DOBaseCellModel.m */; };
+		01854BEA2098520300811A43 /* DOMD5TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BE92098520300811A43 /* DOMD5TableView.m */; };
+		01854BED2098523300811A43 /* DOMD5Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BEC2098523300811A43 /* DOMD5Cell.m */; };
 		0194921620982D5B00E383D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194921520982D5B00E383D3 /* AppDelegate.m */; };
 		0194921E20982D5C00E383D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0194921D20982D5C00E383D3 /* Assets.xcassets */; };
 		0194922120982D5C00E383D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0194921F20982D5C00E383D3 /* LaunchScreen.storyboard */; };
@@ -59,6 +61,10 @@
 		01854BE22098509F00811A43 /* DOMD5VC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOMD5VC.m; sourceTree = "<group>"; };
 		01854BE4209850D000811A43 /* DOBaseCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOBaseCellModel.h; sourceTree = "<group>"; };
 		01854BE5209850D000811A43 /* DOBaseCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOBaseCellModel.m; sourceTree = "<group>"; };
+		01854BE82098520300811A43 /* DOMD5TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOMD5TableView.h; sourceTree = "<group>"; };
+		01854BE92098520300811A43 /* DOMD5TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOMD5TableView.m; sourceTree = "<group>"; };
+		01854BEB2098523300811A43 /* DOMD5Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOMD5Cell.h; sourceTree = "<group>"; };
+		01854BEC2098523300811A43 /* DOMD5Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOMD5Cell.m; sourceTree = "<group>"; };
 		0194921120982D5B00E383D3 /* EncryptionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0194921420982D5B00E383D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0194921520982D5B00E383D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 		01854BDF2098508400811A43 /* MD5 */ = {
 			isa = PBXGroup;
 			children = (
+				01854BE7209851EC00811A43 /* View */,
 				01854BE02098508E00811A43 /* Controller */,
 			);
 			path = MD5;
@@ -148,6 +155,17 @@
 				01854BE22098509F00811A43 /* DOMD5VC.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		01854BE7209851EC00811A43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01854BE82098520300811A43 /* DOMD5TableView.h */,
+				01854BE92098520300811A43 /* DOMD5TableView.m */,
+				01854BEB2098523300811A43 /* DOMD5Cell.h */,
+				01854BEC2098523300811A43 /* DOMD5Cell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0194920820982D5B00E383D3 = {
@@ -453,11 +471,13 @@
 				01854BD0209839D500811A43 /* DOEncryptionListTableView.m in Sources */,
 				01854BDE20984ABF00811A43 /* DOEncrytionListVC.m in Sources */,
 				01854BD8209848F900811A43 /* DOBaseVC.m in Sources */,
+				01854BEA2098520300811A43 /* DOMD5TableView.m in Sources */,
 				0194922420982D5C00E383D3 /* main.m in Sources */,
 				0194926520982F7B00E383D3 /* DOBaseTableView.m in Sources */,
 				0194921620982D5B00E383D3 /* AppDelegate.m in Sources */,
 				01854BE6209850D000811A43 /* DOBaseCellModel.m in Sources */,
 				019492742098364200E383D3 /* DOEncryptionListCell.m in Sources */,
+				01854BED2098523300811A43 /* DOMD5Cell.m in Sources */,
 				0194925D20982DA500E383D3 /* SSKeychainQuery.m in Sources */,
 				0194925C20982DA500E383D3 /* SSKeychain.m in Sources */,
 				01854BDB2098498400811A43 /* DOConsoleVC.m in Sources */,

@@ -9,9 +9,9 @@
 #import "DOEncrytionListVC.h"
 
 #import "DOEncryptionListTableView.h"
-#import "DOBaseCellModel.h"
 
 #import "DOConsoleVC.h"
+#import "DOMD5VC.h"
 
 @interface DOEncrytionListVC ()
 
@@ -66,7 +66,7 @@
     if (!_data_array)
     {
         DOBaseCellModel *cell_model1 = [DOBaseCellModel baseCellModelWithTitle:@"Base64加密" pushClass:[DOConsoleVC class]];
-        DOBaseCellModel *cell_model2 = [DOBaseCellModel baseCellModelWithTitle:@"MD5加密" pushClass:nil];
+        DOBaseCellModel *cell_model2 = [DOBaseCellModel baseCellModelWithTitle:@"MD5加密" pushClass:[DOMD5VC class]];
         DOBaseCellModel *cell_model3 = [DOBaseCellModel baseCellModelWithTitle:@"AES加密" pushClass:nil];
         DOBaseCellModel *cell_model4 = [DOBaseCellModel baseCellModelWithTitle:@"RSA加密" pushClass:nil];
         

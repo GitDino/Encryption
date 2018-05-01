@@ -38,6 +38,21 @@
         case EncryptionTypeBase64:
             self.title = @"Base64";
             break;
+        case EncryptionTypeMD5:
+            self.title = @"MD5";
+            self.decode_btn.hidden = YES;
+            self.decodeResult_textView.hidden = YES;
+            break;
+        case EncryptionTypeMD5AndSalt:
+            self.title = @"MD5 + Salt";
+            self.decode_btn.hidden = YES;
+            self.decodeResult_textView.hidden = YES;
+            break;
+        case EncryptionTypeMD5AndHAC:
+            self.title = @"MD5 + HAC";
+            self.decode_btn.hidden = YES;
+            self.decodeResult_textView.hidden = YES;
+            break;
             
         default:
             break;

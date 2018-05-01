@@ -8,11 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, MD5Type) {
+    MD5TypeNormal = 1,
+    MD5TypeSalt,
+    MD5TypeHAC
+};
+
 @interface DOBaseCellModel : NSObject
 
 @property (nonatomic, copy) NSString *cell_title;
 
 @property (nonatomic, assign) Class push_class;
+
+@property (nonatomic, assign) MD5Type md5_type;
 
 + (instancetype)baseCellModelWithTitle:(NSString *) cell_title pushClass:(Class) push_class;
 
