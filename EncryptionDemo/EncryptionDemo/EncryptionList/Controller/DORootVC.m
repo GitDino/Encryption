@@ -10,6 +10,8 @@
 #import "DOEncryptionListTableView.h"
 #import "DOEncryptionListCellModel.h"
 
+#import "DOConsoleVC.h"
+
 @interface DORootVC ()
 
 @property (nonatomic, strong) DOEncryptionListTableView *list_tableView;
@@ -28,6 +30,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configSubViews];
+    [self configAboutBlock];
 }
 
 #pragma mark - Custom Cycle
@@ -35,6 +38,16 @@
 {
     [self.view addSubview:self.list_tableView];
     [self.list_tableView refreshData:self.data_array];
+}
+
+- (void)configAboutBlock
+{
+    __weak typeof(self) weakSelf = self;
+    self.list_tableView.clickIndexCellBlock = ^(NSIndexPath *indexPath, NSMutableArray *data_array) {
+        DOEncryptionListCellModel *cell_model = data_array[indexPath.row];
+        UIViewController *push_vc = [[[cell_model push_class] alloc] init];
+        [weakSelf.navigationController pushViewController:push_vc animated:YES];
+    };
 }
 
 #pragma mark - Getter Cycle
@@ -51,7 +64,7 @@
 {
     if (!_data_array)
     {
-        DOEncryptionListCellModel *cell_model1 = [DOEncryptionListCellModel listCellModelWithTitle:@"Base64加密" pushClass:nil];
+        DOEncryptionListCellModel *cell_model1 = [DOEncryptionListCellModel listCellModelWithTitle:@"Base64加密" pushClass:[DOConsoleVC class]];
         DOEncryptionListCellModel *cell_model2 = [DOEncryptionListCellModel listCellModelWithTitle:@"MD5加密" pushClass:nil];
         DOEncryptionListCellModel *cell_model3 = [DOEncryptionListCellModel listCellModelWithTitle:@"AES加密" pushClass:nil];
         DOEncryptionListCellModel *cell_model4 = [DOEncryptionListCellModel listCellModelWithTitle:@"RSA加密" pushClass:nil];
