@@ -8,10 +8,12 @@
 
 #define Salt @"!@#Salt"
 #define HMAC_KEY @"Dino"
+#define Private_Key @"Dino"
 
 #import "DOConsoleVC.h"
 
 #import "NSString+Hash.h"
+#import "EncryptionTools.h"
 
 @interface DOConsoleVC ()
 
@@ -116,6 +118,22 @@
             case EncryptionTypeMD5AndHMAC:
                 self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果-------\n%@", self.title, [self md5HMACWithString:self.scanf_textfield.text]];
                 break;
+            case EncryptionTypeAESAndECB:
+                self.encode_result = [self encodeAESAndECBWithString:self.scanf_textfield.text];
+                self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果-------\n%@", self.title, self.encode_result];
+                break;
+            case EncryptionTypeAESAndCBC:
+                self.encode_result = [self encodeAESAndCBCWithString:self.scanf_textfield.text];
+                self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果-------\n%@", self.title, self.encode_result];
+                break;
+            case EncryptionTypeDESAndECB:
+                self.encode_result = [self encodeDESAndECBWithString:self.scanf_textfield.text];
+                self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果--------\n%@", self.title, self.encode_result];
+                break;
+            case EncryptionTypeDESAndCBC:
+                self.encode_result = [self encodeDESAndCBCWithString:self.scanf_textfield.text];
+                self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果--------\n%@", self.title, self.encode_result];
+                break;
                 
             default:
                 break;
@@ -140,6 +158,18 @@
         switch (self.type) {
             case EncryptionTypeBase64:
                 self.decodeResult_textView.text = [NSString stringWithFormat:@"-------%@解密结果-------\n%@", self.title, [self base64DecodedDataWithString:self.encode_result]];
+                break;
+            case EncryptionTypeAESAndECB:
+                self.decodeResult_textView.text = [NSString stringWithFormat:@"-------%@解密结果-------\n%@", self.title, [self decodeAESAndECBWithString:self.encode_result]];
+                break;
+            case EncryptionTypeAESAndCBC:
+                self.decodeResult_textView.text = [NSString stringWithFormat:@"-------%@解密结果-------\n%@", self.title, [self decodeAESAndCBCWithString:self.encode_result]];
+                break;
+            case EncryptionTypeDESAndECB:
+                self.decodeResult_textView.text = [NSString stringWithFormat:@"-------%@解密结果-------\n%@", self.title, [self decodeDESAndECBWithString:self.encode_result]];
+                break;
+            case EncryptionTypeDESAndCBC:
+                self.decodeResult_textView.text = [NSString stringWithFormat:@"-------%@解密结果-------\n%@", self.title, [self decodeDESAndCBCWithString:self.encode_result]];
                 break;
                 
             default:
@@ -202,6 +232,68 @@
 - (NSString *)md5HMACWithString:(NSString *) str
 {
     return [str hmacMD5StringWithKey:HMAC_KEY];
+}
+
+#pragma mark - --------AES加密(解密)--------
+- (NSString *)encodeAESAndECBWithString:(NSString *) str
+{
+    return [[EncryptionTools sharedEncryptionTools] encryptString:str keyString:Private_Key iv:nil];
+}
+
+- (NSString *)decodeAESAndECBWithString:(NSString *) str
+{
+    return [[EncryptionTools sharedEncryptionTools] decryptString:str keyString:Private_Key iv:nil];
+}
+
+- (NSString *)encodeAESAndCBCWithString:(NSString *) str
+{
+    //向量
+    uint8_t iv[8] = {2,3,4,5,6,7,8,9};
+    NSData * ivData = [NSData dataWithBytes:iv length:sizeof(iv)];
+    
+    return [[EncryptionTools sharedEncryptionTools] encryptString:str keyString:Private_Key iv:ivData];
+}
+
+- (NSString *)decodeAESAndCBCWithString:(NSString *) str
+{
+    //向量
+    uint8_t iv[8] = {2,3,4,5,6,7,8,9};
+    NSData * ivData = [NSData dataWithBytes:iv length:sizeof(iv)];
+    
+    return [[EncryptionTools sharedEncryptionTools] decryptString:str keyString:Private_Key iv:ivData];
+}
+
+#pragma mark - --------DES加密(解密)--------
+- (NSString *)encodeDESAndECBWithString:(NSString *) str
+{
+    [EncryptionTools sharedEncryptionTools].algorithm = kCCAlgorithmDES;
+    return [[EncryptionTools sharedEncryptionTools] encryptString:str keyString:Private_Key iv:nil];
+}
+
+- (NSString *)decodeDESAndECBWithString:(NSString *) str
+{
+    [EncryptionTools sharedEncryptionTools].algorithm = kCCAlgorithmDES;
+    return [[EncryptionTools sharedEncryptionTools] decryptString:str keyString:Private_Key iv:nil];
+}
+
+- (NSString *)encodeDESAndCBCWithString:(NSString *) str
+{
+    //向量
+    uint8_t iv[8] = {2,3,4,5,6,7,8,9};
+    NSData * ivData = [NSData dataWithBytes:iv length:sizeof(iv)];
+    
+    [EncryptionTools sharedEncryptionTools].algorithm = kCCAlgorithmDES;
+    return [[EncryptionTools sharedEncryptionTools] encryptString:str keyString:Private_Key iv:ivData];
+}
+
+- (NSString *)decodeDESAndCBCWithString:(NSString *) str
+{
+    //向量
+    uint8_t iv[8] = {2,3,4,5,6,7,8,9};
+    NSData * ivData = [NSData dataWithBytes:iv length:sizeof(iv)];
+    
+    [EncryptionTools sharedEncryptionTools].algorithm = kCCAlgorithmDES;
+    return [[EncryptionTools sharedEncryptionTools] decryptString:str keyString:Private_Key iv:ivData];
 }
 
 #pragma mark - Getter Cycle
