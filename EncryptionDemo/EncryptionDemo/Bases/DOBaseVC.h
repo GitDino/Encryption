@@ -1,5 +1,5 @@
 //
-//  DOConsoleVC.h
+//  DOBaseVC.h
 //  EncryptionDemo
 //
 //  Created by 魏欣宇 on 2018/5/1.
@@ -12,7 +12,7 @@ typedef NS_ENUM(NSUInteger, EncryptionType) {
     EncryptionTypeBase64 = 0,
 };
 
-@interface DOConsoleVC : UIViewController
+@interface DOBaseVC : UIViewController
 
 @property (nonatomic, assign) EncryptionType type;
 
