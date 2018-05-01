@@ -12,6 +12,9 @@
 
 #import "DOConsoleVC.h"
 #import "DOMD5VC.h"
+#import "DOAESVC.h"
+#import "DODESVC.h"
+#import "DORSAVC.h"
 
 @interface DOEncrytionListVC ()
 
@@ -67,9 +70,9 @@
     {
         DOBaseCellModel *cell_model1 = [DOBaseCellModel baseCellModelWithTitle:@"Base64加密" pushClass:[DOConsoleVC class]];
         DOBaseCellModel *cell_model2 = [DOBaseCellModel baseCellModelWithTitle:@"MD5加密" pushClass:[DOMD5VC class]];
-        DOBaseCellModel *cell_model3 = [DOBaseCellModel baseCellModelWithTitle:@"AES加密" pushClass:nil];
-        DOBaseCellModel *cell_model4 = [DOBaseCellModel baseCellModelWithTitle:@"DES加密" pushClass:nil];
-        DOBaseCellModel *cell_model5 = [DOBaseCellModel baseCellModelWithTitle:@"RSA加密" pushClass:nil];
+        DOBaseCellModel *cell_model3 = [DOBaseCellModel baseCellModelWithTitle:@"AES加密" pushClass:[DOAESVC class]];
+        DOBaseCellModel *cell_model4 = [DOBaseCellModel baseCellModelWithTitle:@"DES加密" pushClass:[DODESVC class]];
+        DOBaseCellModel *cell_model5 = [DOBaseCellModel baseCellModelWithTitle:@"RSA加密" pushClass:[DORSAVC class]];
         
         NSArray *temp_array = @[cell_model1, cell_model2, cell_model3, cell_model4, cell_model5];
         
