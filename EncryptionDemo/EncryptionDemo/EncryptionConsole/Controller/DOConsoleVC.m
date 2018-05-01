@@ -322,7 +322,6 @@
 
 - (NSString *)decodeRSAWithString:(NSString *) str
 {
-    
     NSData *result_data = [[RSACryptor sharedRSACryptor] decryptData:[[NSData alloc] initWithBase64EncodedString:str options: NSDataBase64DecodingIgnoreUnknownCharacters]];
     
     return [[NSString alloc] initWithData:result_data encoding:NSUTF8StringEncoding];
