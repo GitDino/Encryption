@@ -48,8 +48,8 @@
             case MD5TypeSalt:
                 push_vc.type = EncryptionTypeMD5AndSalt;
                 break;
-            case MD5TypeHAC:
-                push_vc.type = EncryptionTypeMD5AndHAC;
+            case MD5TypeHMAC:
+                push_vc.type = EncryptionTypeMD5AndHMAC;
                 break;
                 
             default://MD5TypeNormal
@@ -80,8 +80,8 @@
         DOBaseCellModel *cell_model2 = [DOBaseCellModel baseCellModelWithTitle:@"MD5 + 盐" pushClass:[DOConsoleVC class]];
         cell_model2.md5_type = MD5TypeSalt;
         
-        DOBaseCellModel *cell_model3 = [DOBaseCellModel baseCellModelWithTitle:@"HAC + MD5" pushClass:[DOConsoleVC class]];
-        cell_model3.md5_type = MD5TypeHAC;
+        DOBaseCellModel *cell_model3 = [DOBaseCellModel baseCellModelWithTitle:@"HMAC + MD5" pushClass:[DOConsoleVC class]];
+        cell_model3.md5_type = MD5TypeHMAC;
         
         NSArray *temp_array = @[cell_model1, cell_model2, cell_model3];
         

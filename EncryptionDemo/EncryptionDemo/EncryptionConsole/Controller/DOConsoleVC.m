@@ -6,7 +6,12 @@
 //  Copyright © 2018年 Dino. All rights reserved.
 //
 
+#define Salt @"!@#Salt"
+#define HMAC_KEY @"Dino"
+
 #import "DOConsoleVC.h"
+
+#import "NSString+Hash.h"
 
 @interface DOConsoleVC ()
 
@@ -48,8 +53,8 @@
             self.decode_btn.hidden = YES;
             self.decodeResult_textView.hidden = YES;
             break;
-        case EncryptionTypeMD5AndHAC:
-            self.title = @"MD5 + HAC";
+        case EncryptionTypeMD5AndHMAC:
+            self.title = @"MD5 + HMAC";
             self.decode_btn.hidden = YES;
             self.decodeResult_textView.hidden = YES;
             break;
@@ -90,6 +95,15 @@
                 self.encode_result = [self base64EncodedStringWithData:[self.scanf_textfield.text dataUsingEncoding:NSUTF8StringEncoding]];
                 self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果-------\n %@", self.title, self.encode_result];
                 break;
+            case EncryptionTypeMD5:
+                self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果-------\n%@", self.title, [self md5WithString:self.scanf_textfield.text]];
+                break;
+            case EncryptionTypeMD5AndSalt:
+                self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果-------\n%@", self.title, [self md5SaltWithString:self.scanf_textfield.text]];
+                break;
+            case EncryptionTypeMD5AndHMAC:
+                self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果-------\n%@", self.title, [self md5HMACWithString:self.scanf_textfield.text]];
+                break;
                 
             default:
                 break;
@@ -129,7 +143,7 @@
     }
 }
 
-#pragma mark - Base64加密、解密
+#pragma mark - --------Base64加密、解密--------
 - (NSString *)base64EncodedStringWithData:(NSData *) data
 {
     //判断是否传入需要加密数据参数
@@ -160,6 +174,22 @@
     NSData *data = [[NSData alloc] initWithBase64EncodedString:str options: NSDataBase64DecodingIgnoreUnknownCharacters];
     
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
+
+#pragma mark - --------MD5加密--------
+- (NSString *)md5WithString:(NSString *) str
+{
+    return str.md5String;
+}
+
+- (NSString *)md5SaltWithString:(NSString *) str
+{
+    return [str stringByAppendingString:Salt].md5String;
+}
+
+- (NSString *)md5HMACWithString:(NSString *) str
+{
+    return [str hmacMD5StringWithKey:HMAC_KEY];
 }
 
 #pragma mark - Getter Cycle

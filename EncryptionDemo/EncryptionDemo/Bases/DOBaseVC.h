@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, EncryptionType) {
     EncryptionTypeBase64 = 0,
     EncryptionTypeMD5,
     EncryptionTypeMD5AndSalt,
-    EncryptionTypeMD5AndHAC,
+    EncryptionTypeMD5AndHMAC,
 };
 
 @interface DOBaseVC : UIViewController

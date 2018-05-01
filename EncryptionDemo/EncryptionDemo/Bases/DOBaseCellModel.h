@@ -11,7 +11,7 @@
 typedef NS_ENUM(NSUInteger, MD5Type) {
     MD5TypeNormal = 1,
     MD5TypeSalt,
-    MD5TypeHAC
+    MD5TypeHMAC
 };
 
 @interface DOBaseCellModel : NSObject
