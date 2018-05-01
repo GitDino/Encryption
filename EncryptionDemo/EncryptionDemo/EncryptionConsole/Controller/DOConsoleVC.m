@@ -24,6 +24,14 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor lightGrayColor];
+    switch (self.type) {
+        case EncryptionTypeBase64:
+            self.title = @"Base64加密";
+            break;
+            
+        default:
+            break;
+    }
     
     [self configSubViews];
 }
