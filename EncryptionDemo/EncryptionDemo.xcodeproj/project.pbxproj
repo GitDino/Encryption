@@ -120,7 +120,7 @@
 		0194921320982D5B00E383D3 /* EncryptionDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0194925F20982DB800E383D3 /* Controller */,
+				01949268209832AB00E383D3 /* EncryptionList */,
 				019492662098301400E383D3 /* Protocol */,
 				0194924820982D9100E383D3 /* Lib */,
 				0194924720982D8700E383D3 /* Bases */,
@@ -234,6 +234,14 @@
 				019492672098304000E383D3 /* BaseTableViewProtocol.h */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		01949268209832AB00E383D3 /* EncryptionList */ = {
+			isa = PBXGroup;
+			children = (
+				0194925F20982DB800E383D3 /* Controller */,
+			);
+			path = EncryptionList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
