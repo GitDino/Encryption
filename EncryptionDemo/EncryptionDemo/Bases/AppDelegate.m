@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "DORootVC.h"
+#import "DOEncrytionListVC.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +21,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     
-    DORootVC *root_vc = [[DORootVC alloc] init];
+    DOEncrytionListVC *root_vc = [[DOEncrytionListVC alloc] init];
     UINavigationController *root_nav = [[UINavigationController alloc] initWithRootViewController:root_vc];
     
     self.window.rootViewController = root_nav;
