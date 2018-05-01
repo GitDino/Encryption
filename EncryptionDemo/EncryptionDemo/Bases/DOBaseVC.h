@@ -14,6 +14,10 @@ typedef NS_ENUM(NSUInteger, EncryptionType) {
     EncryptionTypeMD5,
     EncryptionTypeMD5AndSalt,
     EncryptionTypeMD5AndHMAC,
+    EncryptionTypeAESAndECB,
+    EncryptionTypeAESAndCBC,
+    EncryptionTypeDESAndECB,
+    EncryptionTypeDESAndCBC,
 };
 
 @interface DOBaseVC : UIViewController

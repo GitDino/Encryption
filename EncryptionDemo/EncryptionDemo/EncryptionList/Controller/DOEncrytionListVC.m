@@ -46,7 +46,7 @@
     self.list_tableView.clickIndexCellBlock = ^(NSIndexPath *indexPath, NSMutableArray *data_array) {
         DOBaseCellModel *cell_model = data_array[indexPath.row];
         DOBaseVC *push_vc = [[[cell_model push_class] alloc] init];
-        push_vc.type = EncryptionTypeBase64;
+//        push_vc.type = EncryptionTypeBase64;
         [weakSelf.navigationController pushViewController:push_vc animated:YES];
     };
 }
@@ -68,9 +68,10 @@
         DOBaseCellModel *cell_model1 = [DOBaseCellModel baseCellModelWithTitle:@"Base64加密" pushClass:[DOConsoleVC class]];
         DOBaseCellModel *cell_model2 = [DOBaseCellModel baseCellModelWithTitle:@"MD5加密" pushClass:[DOMD5VC class]];
         DOBaseCellModel *cell_model3 = [DOBaseCellModel baseCellModelWithTitle:@"AES加密" pushClass:nil];
-        DOBaseCellModel *cell_model4 = [DOBaseCellModel baseCellModelWithTitle:@"RSA加密" pushClass:nil];
+        DOBaseCellModel *cell_model4 = [DOBaseCellModel baseCellModelWithTitle:@"DES加密" pushClass:nil];
+        DOBaseCellModel *cell_model5 = [DOBaseCellModel baseCellModelWithTitle:@"RSA加密" pushClass:nil];
         
-        NSArray *temp_array = @[cell_model1, cell_model2, cell_model3, cell_model4];
+        NSArray *temp_array = @[cell_model1, cell_model2, cell_model3, cell_model4, cell_model5];
         
         _data_array = [NSMutableArray array];
         [_data_array addObjectsFromArray:temp_array];
