@@ -20,6 +20,7 @@
 		0194925D20982DA500E383D3 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194925520982DA500E383D3 /* SSKeychainQuery.m */; };
 		0194925E20982DA500E383D3 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194925720982DA500E383D3 /* NSString+Hash.m */; };
 		0194926220982DD200E383D3 /* DORootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194926120982DD200E383D3 /* DORootVC.m */; };
+		0194926520982F7B00E383D3 /* DOBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194926420982F7B00E383D3 /* DOBaseTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,9 @@
 		0194925820982DA500E383D3 /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		0194926020982DD200E383D3 /* DORootVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DORootVC.h; sourceTree = "<group>"; };
 		0194926120982DD200E383D3 /* DORootVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DORootVC.m; sourceTree = "<group>"; };
+		0194926320982F7B00E383D3 /* DOBaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOBaseTableView.h; sourceTree = "<group>"; };
+		0194926420982F7B00E383D3 /* DOBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOBaseTableView.m; sourceTree = "<group>"; };
+		019492672098304000E383D3 /* BaseTableViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				0194925F20982DB800E383D3 /* Controller */,
+				019492662098301400E383D3 /* Protocol */,
 				0194924820982D9100E383D3 /* Lib */,
 				0194924720982D8700E383D3 /* Bases */,
 				0194924620982D7800E383D3 /* Resources */,
@@ -158,6 +163,8 @@
 			children = (
 				0194921420982D5B00E383D3 /* AppDelegate.h */,
 				0194921520982D5B00E383D3 /* AppDelegate.m */,
+				0194926320982F7B00E383D3 /* DOBaseTableView.h */,
+				0194926420982F7B00E383D3 /* DOBaseTableView.m */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -219,6 +226,14 @@
 				0194926120982DD200E383D3 /* DORootVC.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		019492662098301400E383D3 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				019492672098304000E383D3 /* BaseTableViewProtocol.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +370,7 @@
 				0194925A20982DA500E383D3 /* RSACryptor.m in Sources */,
 				0194925920982DA500E383D3 /* EncryptionTools.m in Sources */,
 				0194922420982D5C00E383D3 /* main.m in Sources */,
+				0194926520982F7B00E383D3 /* DOBaseTableView.m in Sources */,
 				0194921620982D5B00E383D3 /* AppDelegate.m in Sources */,
 				0194926220982DD200E383D3 /* DORootVC.m in Sources */,
 				0194925D20982DA500E383D3 /* SSKeychainQuery.m in Sources */,
