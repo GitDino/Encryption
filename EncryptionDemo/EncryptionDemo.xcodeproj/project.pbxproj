@@ -21,6 +21,7 @@
 		0194925E20982DA500E383D3 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194925720982DA500E383D3 /* NSString+Hash.m */; };
 		0194926220982DD200E383D3 /* DORootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194926120982DD200E383D3 /* DORootVC.m */; };
 		0194926520982F7B00E383D3 /* DOBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194926420982F7B00E383D3 /* DOBaseTableView.m */; };
+		0194926C2098332100E383D3 /* DOEncryptionListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194926B2098332100E383D3 /* DOEncryptionListTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,9 @@
 		0194926320982F7B00E383D3 /* DOBaseTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOBaseTableView.h; sourceTree = "<group>"; };
 		0194926420982F7B00E383D3 /* DOBaseTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOBaseTableView.m; sourceTree = "<group>"; };
 		019492672098304000E383D3 /* BaseTableViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewProtocol.h; sourceTree = "<group>"; };
+		0194926A2098332100E383D3 /* DOEncryptionListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOEncryptionListTableView.h; sourceTree = "<group>"; };
+		0194926B2098332100E383D3 /* DOEncryptionListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOEncryptionListTableView.m; sourceTree = "<group>"; };
+		0194926D209833AD00E383D3 /* EncryptionHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncryptionHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 				0194921520982D5B00E383D3 /* AppDelegate.m */,
 				0194926320982F7B00E383D3 /* DOBaseTableView.h */,
 				0194926420982F7B00E383D3 /* DOBaseTableView.m */,
+				0194926D209833AD00E383D3 /* EncryptionHeader.pch */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -239,9 +244,19 @@
 		01949268209832AB00E383D3 /* EncryptionList */ = {
 			isa = PBXGroup;
 			children = (
+				01949269209832FC00E383D3 /* View */,
 				0194925F20982DB800E383D3 /* Controller */,
 			);
 			path = EncryptionList;
+			sourceTree = "<group>";
+		};
+		01949269209832FC00E383D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0194926A2098332100E383D3 /* DOEncryptionListTableView.h */,
+				0194926B2098332100E383D3 /* DOEncryptionListTableView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +396,7 @@
 				0194926520982F7B00E383D3 /* DOBaseTableView.m in Sources */,
 				0194921620982D5B00E383D3 /* AppDelegate.m in Sources */,
 				0194926220982DD200E383D3 /* DORootVC.m in Sources */,
+				0194926C2098332100E383D3 /* DOEncryptionListTableView.m in Sources */,
 				0194925D20982DA500E383D3 /* SSKeychainQuery.m in Sources */,
 				0194925C20982DA500E383D3 /* SSKeychain.m in Sources */,
 			);
@@ -552,6 +568,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EncryptionDemo/Bases/EncryptionHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/EncryptionDemo/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,6 +586,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/EncryptionDemo/Bases/EncryptionHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/EncryptionDemo/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
