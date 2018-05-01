@@ -20,6 +20,8 @@
 		01854C0020985E1800811A43 /* DORSAVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BFF20985E1800811A43 /* DORSAVC.m */; };
 		01854C0320985E9F00811A43 /* DOAESTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854C0220985E9F00811A43 /* DOAESTableView.m */; };
 		01854C0620985EBF00811A43 /* DOAESCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854C0520985EBF00811A43 /* DOAESCell.m */; };
+		01854C0A20987E1600811A43 /* DODESTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854C0920987E1600811A43 /* DODESTableView.m */; };
+		01854C0D20987E2900811A43 /* DODESCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854C0C20987E2900811A43 /* DODESCell.m */; };
 		0194921620982D5B00E383D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194921520982D5B00E383D3 /* AppDelegate.m */; };
 		0194921E20982D5C00E383D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0194921D20982D5C00E383D3 /* Assets.xcassets */; };
 		0194922120982D5C00E383D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0194921F20982D5C00E383D3 /* LaunchScreen.storyboard */; };
@@ -80,6 +82,10 @@
 		01854C0220985E9F00811A43 /* DOAESTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOAESTableView.m; sourceTree = "<group>"; };
 		01854C0420985EBF00811A43 /* DOAESCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOAESCell.h; sourceTree = "<group>"; };
 		01854C0520985EBF00811A43 /* DOAESCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOAESCell.m; sourceTree = "<group>"; };
+		01854C0820987E1600811A43 /* DODESTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DODESTableView.h; sourceTree = "<group>"; };
+		01854C0920987E1600811A43 /* DODESTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DODESTableView.m; sourceTree = "<group>"; };
+		01854C0B20987E2800811A43 /* DODESCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DODESCell.h; sourceTree = "<group>"; };
+		01854C0C20987E2900811A43 /* DODESCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DODESCell.m; sourceTree = "<group>"; };
 		0194921120982D5B00E383D3 /* EncryptionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0194921420982D5B00E383D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0194921520982D5B00E383D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -195,6 +201,7 @@
 		01854BEF20985CAF00811A43 /* DES */ = {
 			isa = PBXGroup;
 			children = (
+				01854C0720987DFF00811A43 /* View */,
 				01854BF920985DEC00811A43 /* Controller */,
 			);
 			path = DES;
@@ -244,6 +251,17 @@
 				01854BFF20985E1800811A43 /* DORSAVC.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		01854C0720987DFF00811A43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01854C0820987E1600811A43 /* DODESTableView.h */,
+				01854C0920987E1600811A43 /* DODESTableView.m */,
+				01854C0B20987E2800811A43 /* DODESCell.h */,
+				01854C0C20987E2900811A43 /* DODESCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0194920820982D5B00E383D3 = {
@@ -550,9 +568,11 @@
 				0194925920982DA500E383D3 /* EncryptionTools.m in Sources */,
 				01854BF720985D3F00811A43 /* DOAESVC.m in Sources */,
 				01854BE32098509F00811A43 /* DOMD5VC.m in Sources */,
+				01854C0D20987E2900811A43 /* DODESCell.m in Sources */,
 				01854BD0209839D500811A43 /* DOEncryptionListTableView.m in Sources */,
 				01854BDE20984ABF00811A43 /* DOEncrytionListVC.m in Sources */,
 				01854BD8209848F900811A43 /* DOBaseVC.m in Sources */,
+				01854C0A20987E1600811A43 /* DODESTableView.m in Sources */,
 				01854C0620985EBF00811A43 /* DOAESCell.m in Sources */,
 				01854BEA2098520300811A43 /* DOMD5TableView.m in Sources */,
 				0194922420982D5C00E383D3 /* main.m in Sources */,
