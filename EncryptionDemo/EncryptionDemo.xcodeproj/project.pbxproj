@@ -21,6 +21,8 @@
 		01854C0620985EBF00811A43 /* DOAESCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854C0520985EBF00811A43 /* DOAESCell.m */; };
 		01854C0A20987E1600811A43 /* DODESTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854C0920987E1600811A43 /* DODESTableView.m */; };
 		01854C0D20987E2900811A43 /* DODESCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854C0C20987E2900811A43 /* DODESCell.m */; };
+		01854C10209891C000811A43 /* rsa.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 01854C0E209891BF00811A43 /* rsa.p12 */; };
+		01854C11209891C000811A43 /* rsa_cert.der in Resources */ = {isa = PBXBuildFile; fileRef = 01854C0F209891BF00811A43 /* rsa_cert.der */; };
 		0194921620982D5B00E383D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194921520982D5B00E383D3 /* AppDelegate.m */; };
 		0194921E20982D5C00E383D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0194921D20982D5C00E383D3 /* Assets.xcassets */; };
 		0194922120982D5C00E383D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0194921F20982D5C00E383D3 /* LaunchScreen.storyboard */; };
@@ -83,6 +85,8 @@
 		01854C0920987E1600811A43 /* DODESTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DODESTableView.m; sourceTree = "<group>"; };
 		01854C0B20987E2800811A43 /* DODESCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DODESCell.h; sourceTree = "<group>"; };
 		01854C0C20987E2900811A43 /* DODESCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DODESCell.m; sourceTree = "<group>"; };
+		01854C0E209891BF00811A43 /* rsa.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = rsa.p12; path = ../../../SecretKey/rsa.p12; sourceTree = "<group>"; };
+		01854C0F209891BF00811A43 /* rsa_cert.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = rsa_cert.der; path = ../../../SecretKey/rsa_cert.der; sourceTree = "<group>"; };
 		0194921120982D5B00E383D3 /* EncryptionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0194921420982D5B00E383D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0194921520982D5B00E383D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 		0194924620982D7800E383D3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				01854C0F209891BF00811A43 /* rsa_cert.der */,
+				01854C0E209891BF00811A43 /* rsa.p12 */,
 				0194921D20982D5C00E383D3 /* Assets.xcassets */,
 				0194921F20982D5C00E383D3 /* LaunchScreen.storyboard */,
 				0194922220982D5C00E383D3 /* Info.plist */,
@@ -516,7 +522,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0194922120982D5C00E383D3 /* LaunchScreen.storyboard in Resources */,
+				01854C11209891C000811A43 /* rsa_cert.der in Resources */,
 				0194921E20982D5C00E383D3 /* Assets.xcassets in Resources */,
+				01854C10209891C000811A43 /* rsa.p12 in Resources */,
 				0194925B20982DA500E383D3 /* SSKeychain.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
