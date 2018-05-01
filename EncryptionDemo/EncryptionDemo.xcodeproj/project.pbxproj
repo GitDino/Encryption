@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01854BD0209839D500811A43 /* DOEncryptionListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BCF209839D500811A43 /* DOEncryptionListTableView.m */; };
 		01854BD8209848F900811A43 /* DOBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BD7209848F900811A43 /* DOBaseVC.m */; };
+		01854BDB2098498400811A43 /* DOConsoleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BDA2098498400811A43 /* DOConsoleVC.m */; };
 		0194921620982D5B00E383D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194921520982D5B00E383D3 /* AppDelegate.m */; };
 		0194921E20982D5C00E383D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0194921D20982D5C00E383D3 /* Assets.xcassets */; };
 		0194922120982D5C00E383D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0194921F20982D5C00E383D3 /* LaunchScreen.storyboard */; };
@@ -49,6 +50,8 @@
 		01854BCF209839D500811A43 /* DOEncryptionListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOEncryptionListTableView.m; sourceTree = "<group>"; };
 		01854BD6209848F900811A43 /* DOBaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOBaseVC.h; sourceTree = "<group>"; };
 		01854BD7209848F900811A43 /* DOBaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOBaseVC.m; sourceTree = "<group>"; };
+		01854BD92098498400811A43 /* DOConsoleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOConsoleVC.h; sourceTree = "<group>"; };
+		01854BDA2098498400811A43 /* DOConsoleVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOConsoleVC.m; sourceTree = "<group>"; };
 		0194921120982D5B00E383D3 /* EncryptionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0194921420982D5B00E383D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0194921520982D5B00E383D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 		01854BD220983B3800811A43 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				01854BD92098498400811A43 /* DOConsoleVC.h */,
+				01854BDA2098498400811A43 /* DOConsoleVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 				0194926220982DD200E383D3 /* DORootVC.m in Sources */,
 				0194925D20982DA500E383D3 /* SSKeychainQuery.m in Sources */,
 				0194925C20982DA500E383D3 /* SSKeychain.m in Sources */,
+				01854BDB2098498400811A43 /* DOConsoleVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
