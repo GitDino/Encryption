@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01854BD0209839D500811A43 /* DOEncryptionListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01854BCF209839D500811A43 /* DOEncryptionListTableView.m */; };
 		0194921620982D5B00E383D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0194921520982D5B00E383D3 /* AppDelegate.m */; };
 		0194921E20982D5C00E383D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0194921D20982D5C00E383D3 /* Assets.xcassets */; };
 		0194922120982D5C00E383D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0194921F20982D5C00E383D3 /* LaunchScreen.storyboard */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01854BCE209839D500811A43 /* DOEncryptionListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DOEncryptionListTableView.h; sourceTree = "<group>"; };
+		01854BCF209839D500811A43 /* DOEncryptionListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DOEncryptionListTableView.m; sourceTree = "<group>"; };
 		0194921120982D5B00E383D3 /* EncryptionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0194921420982D5B00E383D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0194921520982D5B00E383D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 		01949269209832FC00E383D3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01854BCE209839D500811A43 /* DOEncryptionListTableView.h */,
+				01854BCF209839D500811A43 /* DOEncryptionListTableView.m */,
 				019492722098364200E383D3 /* DOEncryptionListCell.h */,
 				019492732098364200E383D3 /* DOEncryptionListCell.m */,
 			);
@@ -405,6 +410,7 @@
 				0194925E20982DA500E383D3 /* NSString+Hash.m in Sources */,
 				0194925A20982DA500E383D3 /* RSACryptor.m in Sources */,
 				0194925920982DA500E383D3 /* EncryptionTools.m in Sources */,
+				01854BD0209839D500811A43 /* DOEncryptionListTableView.m in Sources */,
 				01949271209835A400E383D3 /* DOEncryptionListCellModel.m in Sources */,
 				0194922420982D5C00E383D3 /* main.m in Sources */,
 				0194926520982F7B00E383D3 /* DOBaseTableView.m in Sources */,

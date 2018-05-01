@@ -7,12 +7,12 @@
 //
 
 #import "DORootVC.h"
-//#import "DOEncryptionListTableView.h"
+#import "DOEncryptionListTableView.h"
 #import "DOEncryptionListCellModel.h"
 
 @interface DORootVC ()
 
-//@property (nonatomic, strong) DOEncryptionListTableView *list_tableView;
+@property (nonatomic, strong) DOEncryptionListTableView *list_tableView;
 
 @property (nonatomic, strong) NSMutableArray *data_array;
 
@@ -33,19 +33,19 @@
 #pragma mark - Custom Cycle
 - (void)configSubViews
 {
-//    [self.view addSubview:self.list_tableView];
-//    [self.list_tableView refreshData:self.data_array];
+    [self.view addSubview:self.list_tableView];
+    [self.list_tableView refreshData:self.data_array];
 }
 
 #pragma mark - Getter Cycle
-//- (DOEncryptionListTableView *)list_tableView
-//{
-//    if (!_list_tableView)
-//    {
-//        _list_tableView = [[DOEncryptionListTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-//    }
-//    return _list_tableView;
-//}
+- (DOEncryptionListTableView *)list_tableView
+{
+    if (!_list_tableView)
+    {
+        _list_tableView = [[DOEncryptionListTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    }
+    return _list_tableView;
+}
 
 - (NSMutableArray *)data_array
 {
