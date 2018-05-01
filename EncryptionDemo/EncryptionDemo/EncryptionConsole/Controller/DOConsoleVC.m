@@ -12,21 +12,31 @@
 
 @property (nonatomic, strong) UITextField *scanf_textfield;
 
-@property (nonatomic, strong) UIButton *encrypted_btn;
+@property (nonatomic, strong) UIButton *encode_btn;
 
-@property (nonatomic, strong) UITextView *result_textView;
+@property (nonatomic, strong) UITextView *encodeResult_textView;
+
+@property (nonatomic, strong) UIButton *decode_btn;
+
+@property (nonatomic, strong) UITextView *decodeResult_textView;
+
+/**
+ 存储加密后的字符串
+ */
+@property (nonatomic, copy) NSString *encode_result;
 
 @end
 
 @implementation DOConsoleVC
 
+#pragma mark - Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     switch (self.type) {
         case EncryptionTypeBase64:
-            self.title = @"Base64加密";
+            self.title = @"Base64";
             break;
             
         default:
@@ -41,23 +51,66 @@
 {
     [self.view addSubview:self.scanf_textfield];
     
-    [self.view addSubview:self.encrypted_btn];
-    [self.encrypted_btn addTarget:self action:@selector(clickEncryptionAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.encode_btn];
+    [self.encode_btn addTarget:self action:@selector(clickEncodeAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:self.result_textView];
+    [self.view addSubview:self.encodeResult_textView];
+    
+    [self.view addSubview:self.decode_btn];
+    [self.decode_btn addTarget:self action:@selector(clickDecodeAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.decodeResult_textView];
 }
 
 #pragma mark - Event Cycle
-- (void)clickEncryptionAction:(UIButton *) btn
+/**
+ 加密事件
+ */
+- (void)clickEncodeAction:(UIButton *) btn
 {
-    
-    switch (self.type) {
-        case EncryptionTypeBase64:
-            self.result_textView.text = [self base64EncodedStringWithData:[self.scanf_textfield.text dataUsingEncoding:NSUTF8StringEncoding]];
-            break;
-            
-        default:
-            break;
+    if (self.scanf_textfield.text.length > 0)
+    {
+        switch (self.type) {
+            case EncryptionTypeBase64:
+                self.encode_result = [self base64EncodedStringWithData:[self.scanf_textfield.text dataUsingEncoding:NSUTF8StringEncoding]];
+                self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果-------\n %@", self.title, self.encode_result];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    else
+    {
+        UIAlertController *alert_controller = [UIAlertController alertControllerWithTitle:@"注意" message:@"请输入需要加密的字符串！" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alert_action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alert_controller addAction:alert_action];
+        [self presentViewController:alert_controller animated:YES completion:nil];
+    }
+}
+
+/**
+ 解密事件
+ */
+- (void)clickDecodeAction:(UIButton *) btn
+{
+    if (self.encode_result.length > 0)
+    {
+        switch (self.type) {
+            case EncryptionTypeBase64:
+                self.decodeResult_textView.text = [NSString stringWithFormat:@"-------%@解密结果-------\n%@", self.title, [self base64DecodedDataWithString:self.encode_result]];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    else
+    {
+        UIAlertController *alert_controller = [UIAlertController alertControllerWithTitle:@"注意" message:@"没有任何需要解密的字符串" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alert_action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        [alert_controller addAction:alert_action];
+        [self presentViewController:alert_controller animated:YES completion:nil];
     }
 }
 
@@ -106,30 +159,56 @@
     return _scanf_textfield;
 }
 
-- (UIButton *)encrypted_btn
+- (UIButton *)encode_btn
 {
-    if (!_encrypted_btn)
+    if (!_encode_btn)
     {
-        _encrypted_btn = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) * 0.5, 150, 100, 44)];
-        _encrypted_btn.layer.masksToBounds = YES;
-        _encrypted_btn.layer.cornerRadius = 3.0;
-        _encrypted_btn.layer.borderColor = Main_Color.CGColor;
-        _encrypted_btn.layer.borderWidth = 1.0;
-        [_encrypted_btn setTitleColor:Main_Color forState:UIControlStateNormal];
-        [_encrypted_btn setTitle:@"开始加密" forState:UIControlStateNormal];
+        _encode_btn = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) * 0.5, 150, 100, 44)];
+        _encode_btn.layer.masksToBounds = YES;
+        _encode_btn.layer.cornerRadius = 3.0;
+        _encode_btn.layer.borderColor = Main_Color.CGColor;
+        _encode_btn.layer.borderWidth = 1.0;
+        [_encode_btn setTitleColor:Main_Color forState:UIControlStateNormal];
+        [_encode_btn setTitle:@"开始加密" forState:UIControlStateNormal];
     }
-    return _encrypted_btn;
+    return _encode_btn;
 }
 
-- (UITextView *)result_textView
+- (UITextView *)encodeResult_textView
 {
-    if (!_result_textView)
+    if (!_encodeResult_textView)
     {
-        _result_textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 210, SCREEN_WIDTH - 40, 100)];
-        _result_textView.editable = NO;
-        _result_textView.selectable = NO;
+        _encodeResult_textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 210, SCREEN_WIDTH - 40, 100)];
+        _encodeResult_textView.editable = NO;
+        _encodeResult_textView.selectable = NO;
     }
-    return _result_textView;
+    return _encodeResult_textView;
+}
+
+- (UIButton *)decode_btn
+{
+    if (!_decode_btn)
+    {
+        _decode_btn = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 100) * 0.5, 325, 100, 44)];
+        _decode_btn.layer.masksToBounds = YES;
+        _decode_btn.layer.cornerRadius = 3.0;
+        _decode_btn.layer.borderColor = Main_Color.CGColor;
+        _decode_btn.layer.borderWidth = 1.0;
+        [_decode_btn setTitleColor:Main_Color forState:UIControlStateNormal];
+        [_decode_btn setTitle:@"开始解密" forState:UIControlStateNormal];
+    }
+    return _decode_btn;
+}
+
+- (UITextView *)decodeResult_textView
+{
+    if (!_decodeResult_textView)
+    {
+        _decodeResult_textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 384, SCREEN_WIDTH - 40, 100)];
+        _decodeResult_textView.editable = NO;
+        _decodeResult_textView.selectable = NO;
+    }
+    return _decodeResult_textView;
 }
 
 @end
