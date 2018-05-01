@@ -9,7 +9,7 @@
 #import "DOEncrytionListVC.h"
 
 #import "DOEncryptionListTableView.h"
-#import "DOEncryptionListCellModel.h"
+#import "DOBaseCellModel.h"
 
 #import "DOConsoleVC.h"
 
@@ -44,7 +44,7 @@
 {
     __weak typeof(self) weakSelf = self;
     self.list_tableView.clickIndexCellBlock = ^(NSIndexPath *indexPath, NSMutableArray *data_array) {
-        DOEncryptionListCellModel *cell_model = data_array[indexPath.row];
+        DOBaseCellModel *cell_model = data_array[indexPath.row];
         DOBaseVC *push_vc = [[[cell_model push_class] alloc] init];
         push_vc.type = EncryptionTypeBase64;
         [weakSelf.navigationController pushViewController:push_vc animated:YES];
@@ -65,10 +65,10 @@
 {
     if (!_data_array)
     {
-        DOEncryptionListCellModel *cell_model1 = [DOEncryptionListCellModel listCellModelWithTitle:@"Base64加密" pushClass:[DOConsoleVC class]];
-        DOEncryptionListCellModel *cell_model2 = [DOEncryptionListCellModel listCellModelWithTitle:@"MD5加密" pushClass:nil];
-        DOEncryptionListCellModel *cell_model3 = [DOEncryptionListCellModel listCellModelWithTitle:@"AES加密" pushClass:nil];
-        DOEncryptionListCellModel *cell_model4 = [DOEncryptionListCellModel listCellModelWithTitle:@"RSA加密" pushClass:nil];
+        DOBaseCellModel *cell_model1 = [DOBaseCellModel baseCellModelWithTitle:@"Base64加密" pushClass:[DOConsoleVC class]];
+        DOBaseCellModel *cell_model2 = [DOBaseCellModel baseCellModelWithTitle:@"MD5加密" pushClass:nil];
+        DOBaseCellModel *cell_model3 = [DOBaseCellModel baseCellModelWithTitle:@"AES加密" pushClass:nil];
+        DOBaseCellModel *cell_model4 = [DOBaseCellModel baseCellModelWithTitle:@"RSA加密" pushClass:nil];
         
         NSArray *temp_array = @[cell_model1, cell_model2, cell_model3, cell_model4];
         

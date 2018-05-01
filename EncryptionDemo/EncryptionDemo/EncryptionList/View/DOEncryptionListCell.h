@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DOEncryptionListCellModel;
+@class DOBaseCellModel;
 
 @interface DOEncryptionListCell : UITableViewCell
 
-@property (nonatomic, strong) DOEncryptionListCellModel *cell_model;
+@property (nonatomic, strong) DOBaseCellModel *cell_model;
 
 + (instancetype)encryptionListCellWithTableView:(UITableView *) tableView;
 

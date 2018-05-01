@@ -7,7 +7,7 @@
 //
 
 #import "DOEncryptionListCell.h"
-#import "DOEncryptionListCellModel.h"
+#import "DOBaseCellModel.h"
 
 @implementation DOEncryptionListCell
 
@@ -30,7 +30,7 @@
 }
 
 #pragma mark - Setter Cycle
-- (void)setCell_model:(DOEncryptionListCellModel *)cell_model
+- (void)setCell_model:(DOBaseCellModel *)cell_model
 {
     _cell_model = cell_model;
     
