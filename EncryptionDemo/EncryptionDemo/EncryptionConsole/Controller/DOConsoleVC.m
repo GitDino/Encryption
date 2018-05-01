@@ -14,6 +14,7 @@
 
 #import "NSString+Hash.h"
 #import "EncryptionTools.h"
+#import "RSACryptor.h"
 
 @interface DOConsoleVC ()
 
@@ -74,6 +75,10 @@
             break;
         case EncryptionTypeRSA:
             self.title = @"RSA";
+            //加载公钥
+            [[RSACryptor sharedRSACryptor] loadPublicKey:[[NSBundle mainBundle] pathForResource:@"rsa_cert.der" ofType:nil]];
+            //加载私钥
+            [[RSACryptor sharedRSACryptor] loadPrivateKey:[[NSBundle mainBundle] pathForResource:@"rsa.p12" ofType:nil] password:@"123456"];
             break;
             
         default:
@@ -138,6 +143,8 @@
                 self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果--------\n%@", self.title, self.encode_result];
                 break;
             case EncryptionTypeRSA:
+                self.encode_result = [self encodeRSAWithString:self.scanf_textfield.text];
+                self.encodeResult_textView.text = [NSString stringWithFormat:@"-------%@加密结果--------\n%@", self.title, self.encode_result];
                 break;
                 
             default:
@@ -177,6 +184,7 @@
                 self.decodeResult_textView.text = [NSString stringWithFormat:@"-------%@解密结果-------\n%@", self.title, [self decodeDESAndCBCWithString:self.encode_result]];
                 break;
             case EncryptionTypeRSA:
+                self.decodeResult_textView.text = [NSString stringWithFormat:@"-------%@解密结果-------\n%@", self.title, [self decodeRSAWithString:self.encode_result]];
                 break;
                 
             default:
@@ -302,6 +310,24 @@
     [EncryptionTools sharedEncryptionTools].algorithm = kCCAlgorithmDES;
     return [[EncryptionTools sharedEncryptionTools] decryptString:str keyString:Private_Key iv:ivData];
 }
+
+
+#pragma mark - --------RSA加密(解密)--------
+- (NSString *)encodeRSAWithString:(NSString *) str
+{
+    NSData *result_data = [[RSACryptor sharedRSACryptor] encryptData:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    return [result_data base64EncodedStringWithOptions:0];
+}
+
+- (NSString *)decodeRSAWithString:(NSString *) str
+{
+    
+    NSData *result_data = [[RSACryptor sharedRSACryptor] decryptData:[[NSData alloc] initWithBase64EncodedString:str options: NSDataBase64DecodingIgnoreUnknownCharacters]];
+    
+    return [[NSString alloc] initWithData:result_data encoding:NSUTF8StringEncoding];
+}
+
 
 #pragma mark - Getter Cycle
 - (UITextField *)scanf_textfield
